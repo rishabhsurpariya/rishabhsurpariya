@@ -1,0 +1,301 @@
+/* ── Connect Showcase Section (Sticky Pinned for Card Reveal Parallax) ── */
+.connect-showcase-section {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 3.5rem 1.5rem;
+  box-sizing: border-box;
+  background-color: #e6f3ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ── No dotted grid — clean sky blue bg ── */
+.connect-showcase-bg-grid {
+  display: none;
+}
+
+/* ── Floating Scrapbook Stickers Layer ── */
+.connect-stickers-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sticker-item {
+  position: absolute;
+  user-select: none;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+
+.sticker-item:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  z-index: 25;
+}
+
+/* Left: Textured Paper with Clip */
+.sticker-paper {
+  left: 0vw;
+  top: 14%;
+  width: 210px;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.12));
+}
+
+.sticker-img-paper {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Left: Dreams Torn Scrap */
+.sticker-dreams {
+  left: 7.5vw;
+  top: 26%;
+  width: 220px;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.16));
+}
+
+.sticker-img-dreams {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Right: Blue macOS Folder */
+.sticker-folder {
+  right: 8vw;
+  top: 14%;
+  width: 155px;
+  filter: drop-shadow(0 15px 30px rgba(0, 60, 140, 0.18));
+}
+
+.folder-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sticker-img-folder {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.folder-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+/* Right: AirDrop Card */
+.sticker-airdrop {
+  right: 5vw;
+  top: 38%;
+  width: 175px;
+  filter: drop-shadow(0 18px 36px rgba(0, 0, 0, 0.22));
+}
+
+.sticker-img-airdrop {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* ── Content Container ── */
+.connect-showcase-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* ── Massive 3-Line Heading ── */
+.connect-main-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Caveat', 'Alex Brush', cursive;
+  font-size: clamp(3.6rem, 8.5vw, 7.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 0;
+}
+
+.connect-title-line-1 {
+  color: #84848d;
+  font-weight: 600;
+}
+
+.connect-title-line-2 {
+  color: #0f0f12;
+  font-weight: 700;
+}
+
+.connect-title-line-3 {
+  color: #0f0f12;
+  font-weight: 700;
+}
+
+/* ── Orange "My Menu" Sticky Card ── */
+.connect-menu-card {
+  position: relative;
+  width: 420px;
+  max-width: 90vw;
+  background: #f95c1e;
+  border-radius: 26px;
+  padding: 2.2rem 2.4rem 2.4rem;
+  box-shadow: 0 26px 65px rgba(249, 92, 30, 0.35), 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  margin-top: -1.4rem;
+  z-index: 15;
+  cursor: pointer;
+  transform-origin: center center;
+}
+
+.connect-menu-title {
+  font-family: 'Caveat', 'Alex Brush', cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+  margin: 0 0 0.8rem 0.2rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.connect-menu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.connect-menu-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.36);
+  padding: 0.65rem 0.4rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.connect-menu-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+.connect-menu-row.row-indented {
+  padding-left: 3.4rem;
+}
+
+.connect-menu-row:hover {
+  transform: translateX(4px);
+  opacity: 0.95;
+}
+
+.connect-menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.menu-smiley {
+  font-size: 1.45rem;
+  color: #ffffff;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.menu-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* ── Responsive Breakpoints ── */
+@media (max-width: 1100px) {
+  .sticker-paper {
+    left: -4vw;
+    width: 170px;
+  }
+
+  .sticker-dreams {
+    left: 4vw;
+    width: 180px;
+  }
+
+  .sticker-folder {
+    right: 4vw;
+    width: 130px;
+  }
+
+  .sticker-airdrop {
+    right: 2vw;
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .connect-showcase-section {
+    padding: 6rem 1rem 8rem 1rem;
+  }
+
+  .connect-main-title {
+    font-size: clamp(2.3rem, 9vw, 3.8rem);
+  }
+
+  .connect-menu-card {
+    width: 340px;
+    padding: 1.8rem 1.6rem 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .connect-menu-row.row-indented {
+    padding-left: 2rem;
+  }
+
+  .sticker-paper {
+    left: -10px;
+    top: 5%;
+    width: 130px;
+    opacity: 0.7;
+  }
+
+  .sticker-dreams {
+    left: 20px;
+    top: 15%;
+    width: 140px;
+    opacity: 0.75;
+  }
+
+  .sticker-folder {
+    right: 15px;
+    top: 6%;
+    width: 110px;
+  }
+
+  .sticker-airdrop {
+    right: 10px;
+    top: 25%;
+    width: 120px;
+  }
+}

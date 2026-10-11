@@ -1,0 +1,326 @@
+/* ==========================================================================
+   FOOTER CTA SECTION (Matching Reference Screenshot Exactly)
+   Vivid Azure Sky, Tilted Meme Video Card, and Giant Watermark "RISHABH"
+   ========================================================================== */
+
+.footer-cta-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #3aa0f7 0%, #258cee 45%, #42a1f8 100%);
+  color: #ffffff;
+  padding: 3.5rem 3.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: inherit;
+  z-index: 10;
+  border-top-left-radius: 44px;
+  border-top-right-radius: 44px;
+  box-shadow: 0 -40px 100px rgba(0, 30, 80, 0.35), 0 -10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Main Content Container */
+.footer-cta-container {
+  position: relative;
+  z-index: 5;
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* Grid Layout: Left Content & Right Video */
+.footer-cta-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  align-items: center;
+  gap: 3.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Left Column */
+.footer-cta-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-cta-headline {
+  font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.6vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+  text-shadow: 0 2px 16px rgba(0, 20, 60, 0.12);
+}
+
+.footer-cta-script {
+  font-family: 'Caveat', cursive;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: normal;
+  display: inline-block;
+  transform: translateY(2px);
+  margin-left: 0.15em;
+}
+
+/* Info Row: Email & Social */
+.footer-cta-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 4.5rem;
+}
+
+.footer-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-info-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.02em;
+}
+
+.footer-info-link {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-info-link:hover {
+  opacity: 0.85;
+  transform: translateX(2px);
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  max-width: 320px;
+}
+
+.footer-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: #ffffff;
+  color: #1e293b;
+  border-radius: 50%;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+  background: #f8fafc;
+  color: #0284c7;
+}
+
+/* Right Column: Floating Video Card */
+.footer-cta-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-video-card {
+  width: 100%;
+  max-width: 440px;
+  aspect-ratio: 16 / 10;
+  background: #000000;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 24px 50px -10px rgba(0, 30, 80, 0.42),
+              0 10px 20px -5px rgba(0, 0, 0, 0.25);
+  transform: rotate(-2.8deg);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.footer-video-card:hover {
+  transform: rotate(-0.5deg) scale(1.03);
+  box-shadow: 0 32px 64px -12px rgba(0, 30, 80, 0.5),
+              0 16px 28px -6px rgba(0, 0, 0, 0.3);
+}
+
+.footer-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Divider Line */
+.footer-cta-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Copyright Row */
+.footer-cta-bottom-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   GIANT WATERMARK "RISHABH" (EXACTLY AS IN THE SCREENSHOT)
+   Prominently placed in the lower section, fully visible right below copyright
+   ========================================================================== */
+.footer-watermark-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  overflow: visible;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-watermark-text {
+  font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(5.2rem, 16.5vw, 15.8rem);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  line-height: 0.88;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.32) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   ATMOSPHERIC CLOUDS OVERLAY (IN FRONT OF LETTERS MATCHING SCREENSHOT)
+   ========================================================================== */
+.footer-clouds-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+/* Left fluffy cloud puffs overlapping 'R' and 'I' */
+.footer-cloud-left {
+  position: absolute;
+  bottom: -20px;
+  left: -50px;
+  width: 380px;
+  height: 260px;
+  background: radial-gradient(circle at 35% 75%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(255, 255, 255, 0) 72%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* Right fluffy cloud puffs overlapping 'B' and 'H' */
+.footer-cloud-right {
+  position: absolute;
+  bottom: -20px;
+  right: -50px;
+  width: 400px;
+  height: 280px;
+  background: radial-gradient(circle at 65% 75%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(255, 255, 255, 0) 72%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* Bottom continuous rolling cloud layer */
+.footer-clouds-bottom-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36%;
+  pointer-events: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
+}
+
+.footer-clouds-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom center;
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  filter: brightness(1.1) contrast(1.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .footer-cta-section {
+    padding: 3rem 1.5rem 0;
+  }
+
+  .footer-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-cta-right {
+    width: 100%;
+  }
+
+  .footer-video-card {
+    max-width: 100%;
+    transform: rotate(-1.5deg);
+  }
+
+  .footer-cta-info-row {
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-watermark-text {
+    font-size: clamp(3.5rem, 15vw, 7rem);
+    white-space: normal;
+  }
+}

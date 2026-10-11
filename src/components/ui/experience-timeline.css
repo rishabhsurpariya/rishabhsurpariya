@@ -1,0 +1,325 @@
+/* ── Scroll Container ── */
+.exp-timeline-wrapper {
+  height: 250vh;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.exp-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.exp-horizontal-scroll {
+  display: flex;
+  align-items: center; /* all item-containers centered on the timeline axis */
+  gap: 6rem;
+  position: relative;
+  padding-left: 8vw;
+  padding-right: 40vw;
+  will-change: transform;
+}
+
+/* ── Continuous center line ── */
+.exp-continuous-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 9999px;
+  height: 2px;
+  background-color: #c8dae6;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ── Item container: dot in the exact middle ── */
+.exp-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  flex-shrink: 0;
+  /* No height: let top/bottom halves define it */
+}
+
+/* ── Top & Bottom halves ── */
+.exp-half {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Top half pushes its content DOWN (toward the dot) */
+.exp-top-half {
+  justify-content: flex-end;
+  min-height: 280px; /* card + stem + pill need room */
+}
+
+/* Bottom half pushes its content UP (toward the dot) */
+.exp-bottom-half {
+  justify-content: flex-start;
+  min-height: 280px;
+}
+
+/* ── Dot ── */
+.exp-timeline-dot {
+  width: 13px;
+  height: 13px;
+  background: #b0c9d9;
+  border-radius: 50%;
+  flex-shrink: 0;
+  z-index: 3;
+  position: relative;
+}
+
+.exp-timeline-dot.dot-active {
+  background: #22c55e;
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.18);
+}
+
+/* ── Stem (vertical bar between dot and card) ── */
+.exp-stem {
+  width: 2px;
+  height: 40px;
+  background: #c8dae6;
+  flex-shrink: 0;
+}
+
+/* ── Date pill slot ── */
+.exp-date-pill-slot {
+  display: flex;
+  justify-content: center;
+  /* For top-half: pill at top (pushed to top by flex-end stacking) */
+  /* For bottom-half: pill at bottom (naturally last child) */
+  padding: 0.6rem 0;
+}
+
+/* ── Date Pill ── */
+.exp-date-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #eef3f7;
+  border: 1.5px solid #c8d8e4;
+  color: #4a6070;
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.exp-date-pill.pill-active {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+
+/* ── Card ── */
+.exp-item-container:hover {
+  z-index: 50;
+}
+
+.exp-card {
+  position: relative;
+  overflow: visible;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem 1.75rem;
+  width: 400px;
+  box-shadow: 0 12px 40px -10px rgba(0, 60, 120, 0.10);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.card-tilt-right { transform: rotate(2.5deg); }
+.card-tilt-left  { transform: rotate(-2.5deg); }
+
+.exp-card:hover {
+  transform: rotate(0deg) translateY(-6px) !important;
+  box-shadow: 0 24px 50px -10px rgba(0, 50, 100, 0.18);
+  z-index: 50;
+}
+
+/* ── Hover Preview Fan-Out Images Cluster (Matching Reference) ── */
+.exp-hover-cluster {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s ease, transform 0.36s cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.exp-cluster-card {
+  position: absolute;
+  width: 122px;
+  height: 168px;
+  border-radius: 12px;
+  border: 3.5px solid #ffffff;
+  background: #ffffff;
+  box-shadow: 0 16px 36px rgba(0, 20, 50, 0.26), 0 4px 10px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.34, 1.45, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.exp-cluster-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Rest positions (collapsed together) */
+.exp-cluster-left {
+  transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
+  z-index: 1;
+}
+
+.exp-cluster-center {
+  width: 132px;
+  height: 180px;
+  transform: translate(-50%, -50%) translateY(0px) rotate(0deg);
+  z-index: 3;
+}
+
+.exp-cluster-right {
+  transform: translate(-50%, -50%) translateX(0px) rotate(0deg);
+  z-index: 2;
+}
+
+/* Hover active state: Fan out cards */
+.exp-card:hover .exp-hover-cluster {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.exp-card:hover .exp-cluster-left {
+  transform: translate(-50%, -50%) translateX(-56px) translateY(-4px) rotate(-11.5deg);
+  transition-delay: 0.02s;
+}
+
+.exp-card:hover .exp-cluster-center {
+  transform: translate(-50%, -50%) translateY(-16px) rotate(-1deg);
+  box-shadow: 0 24px 50px rgba(0, 20, 50, 0.34), 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition-delay: 0s;
+}
+
+.exp-card:hover .exp-cluster-right {
+  transform: translate(-50%, -50%) translateX(56px) translateY(-4px) rotate(11.5deg);
+  transition-delay: 0.04s;
+}
+
+/* ── Card Header ── */
+.exp-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.exp-card-logo-container {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  background: #f4f8fb;
+  border: 1px solid #e0eaf1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.exp-card-logo {
+  width: 68%;
+  height: 68%;
+  object-fit: contain;
+}
+
+.exp-card-title-group {
+  flex-grow: 1;
+}
+
+.exp-card-role {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.18rem;
+}
+
+.exp-card-company {
+  font-size: 0.88rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.exp-card-location {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #8ea0ae;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.location-icon { opacity: 0.75; }
+
+/* ── Divider ── */
+.exp-card-divider {
+  height: 1px;
+  background: #eef2f5;
+  margin: 0.5rem 0 1rem;
+}
+
+/* ── Bullet Points ── */
+.exp-card-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.exp-card-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.91rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.point-bullet {
+  color: #9ab5c4;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.point-text strong {
+  color: #1e293b;
+  font-weight: 650;
+}
