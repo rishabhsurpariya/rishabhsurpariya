@@ -35,24 +35,24 @@ const WORKS_ITEMS = [
     href: "#",
   },
   {
-    title: "Huddle Social Platform",
-    image: "/moreworks_media/chatgpt1.png",
-    href: "#",
+    title: "TripAi Itinerary Planner",
+    image: "/tripai/tripai-1.png",
+    href: "https://trip-ai-pied.vercel.app/",
   },
   {
-    title: "Huddle Groups & Collab",
-    image: "/huddle/chatgpt2.png",
-    href: "#",
+    title: "TripAi Staged LLM Pipeline",
+    image: "/tripai/tripai-2.png",
+    href: "https://trip-ai-pied.vercel.app/",
   },
   {
-    title: "Huddle Professional Network",
-    image: "/huddle/chatgpt3.png",
-    href: "#",
+    title: "TripAi Hotels & Geocoding",
+    image: "/tripai/tripai-3.png",
+    href: "https://trip-ai-pied.vercel.app/",
   },
   {
-    title: "Huddle Student Community",
-    image: "/huddle/chatgpt4.png",
-    href: "#",
+    title: "TripAi Budget Breakdown",
+    image: "/tripai/tripai-4.png",
+    href: "https://trip-ai-pied.vercel.app/",
   },
   {
     title: "mAInu Smart Ordering",
@@ -530,6 +530,34 @@ const PROJECT_TECH_ICONS = {
   'React': <StackIcon name="react" style={{ width: 23, height: 23 }} />,
   'MongoDB': <StackIcon name="mongodb" style={{ width: 23, height: 23 }} />,
   'Socket.io': <StackIcon name="socketio" style={{ width: 23, height: 23 }} />,
+  'TypeScript': (
+    <svg viewBox="0 0 24 24" width="21" height="21" fill="#3178C6">
+      <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0H1.125zm17.363 9.75c.612 0 1.154.037 1.627.111.474.074.877.178 1.21.313v2.144a6.47 6.47 0 00-1.344-.52 6.012 6.012 0 00-1.412-.178c-.714 0-1.258.156-1.632.468-.374.312-.561.761-.561 1.347 0 .375.093.687.279.937.186.25.438.459.756.626.318.167.68.307 1.085.42.406.113.82.235 1.242.365.57.178 1.077.411 1.52.7.443.289.808.641 1.095 1.056.287.415.43.916.43 1.503 0 .749-.199 1.413-.597 1.993-.398.58-.962 1.03-1.692 1.35-.73.32-1.603.48-2.619.48-1.026 0-1.958-.15-2.795-.45a8.777 8.777 0 01-2.148-1.28l1.328-1.89c.57.42 1.173.748 1.808.983.636.236 1.25.353 1.843.353.774 0 1.378-.17 1.81-.51.433-.341.65-.807.65-1.398 0-.414-.1-.75-.3-1.01a2.88 2.88 0 00-.814-.68 6.48 6.48 0 00-1.18-.468l-1.255-.386a5.534 5.534 0 01-1.532-.733 3.636 3.636 0 01-1.09-1.096 3.09 3.09 0 01-.41-1.584c0-.75.204-1.41.613-1.98.409-.57.974-1.01 1.694-1.32.72-.31 1.564-.465 2.532-.465zm-8.835.25v11.75H7.13V10h-3.41V8h9.34v2H9.653z" />
+    </svg>
+  ),
+  'Tailwind CSS': (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="#38BDF8">
+      <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+    </svg>
+  ),
+  'Supabase': (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="#3ECF8E">
+      <path d="M13.483 0L0 15.65h10.517L9.517 24 24 8.35H13.483z" />
+    </svg>
+  ),
+  'Gemini API': (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="#4285F4">
+      <path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z" />
+    </svg>
+  ),
+  'Zod': (
+    <span style={{ fontWeight: 800, fontSize: 13, color: '#3068b7', letterSpacing: '0.02em' }}>Zod</span>
+  ),
+  'Vercel': (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+      <path d="M12 1L24 22H0L12 1Z" />
+    </svg>
+  ),
 };
 
 function ProjectTechStack({ stack }) {
@@ -1208,40 +1236,49 @@ function App() {
             {/* Left: Elastic Gallery */}
             <div className="project-split-right gallery-tilt--left">
               <ElasticGallery
-                defaultActiveIndex={3}
+                defaultActiveIndex={0}
                 items={[
-                  { id: 0, title: 'Ideas', category: 'COMMUNITY', image: '/huddle/chatgpt4.png', link: '#' },
-                  { id: 1, title: 'Collab', category: 'GROUPS', image: '/huddle/chatgpt2.png', link: '#' },
-                  { id: 2, title: 'Network', category: 'PROFESSIONAL', image: '/huddle/chatgpt3.png', link: '#' },
-                  { id: 3, title: 'Huddle', category: 'SOCIAL / PLATFORM', image: '/huddle/chatgpt1.png', link: '#' },
+                  { id: 0, title: 'Trip Planner', category: 'AI ITINERARY', image: '/tripai/tripai-1.png', link: 'https://trip-ai-pied.vercel.app/' },
+                  { id: 1, title: 'Day-by-Day', category: 'STAGED PIPELINE', image: '/tripai/tripai-2.png', link: 'https://trip-ai-pied.vercel.app/' },
+                  { id: 2, title: 'Hotels & Route', category: 'GEOCODING & STAYS', image: '/tripai/tripai-3.png', link: 'https://trip-ai-pied.vercel.app/' },
+                  { id: 3, title: 'Budget Engine', category: 'EXPENSE BREAKDOWN', image: '/tripai/tripai-4.png', link: 'https://trip-ai-pied.vercel.app/' },
                 ]}
               />
             </div>
 
             {/* Right: Project info text */}
             <div className="project-split-left">
-              <p className="project-date">2025 – Present</p>
-              <AnimatedProjectTitle text="A global student community to connect, collaborate & grow" />
-              <ProjectTechStack stack={['React', 'Node.js', 'MongoDB', 'Socket.io']} />
+              <p className="project-date">2026 – Present</p>
+              <AnimatedProjectTitle text="AI Travel Itinerary Planner with Staged LLM Pipeline" />
+              <ProjectTechStack stack={['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Gemini API', 'Zod', 'Vercel']} />
               <p className="project-desc">
-                Students worldwide connect, share ideas, form groups, and find professional
-                partners across content, business, sports, and coding — all in one platform
-                built to break boundaries and spark collaboration.
+                Built and deployed a full-stack AI trip planner that turns a destination, budget and currency into a day-by-day itinerary with transport options, hotels and a budget breakdown, with editing, saving and public share links.
               </p>
+              <div className="tripai-highlights" style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.96rem', lineHeight: '1.55', color: '#55524b' }}>
+                <div><strong>Staged LLM Pipeline:</strong> Transport, itinerary, and stays via Gemini with Zod-validated JSON output, retry loops, and rate-limit backoff.</div>
+                <div><strong>Deterministic Budget Engine:</strong> Server-side budget arithmetic and price sanity checks against user budget and currency.</div>
+                <div><strong>Supabase Auth &amp; RLS:</strong> Row-level security with email and Google OAuth, plus restricted share-link lookups that protect user identity.</div>
+                <div><strong>Geocoding &amp; Efficiency:</strong> OpenStreetMap geocoding with graceful fallbacks and image relevance filtering, optimized for free-tier quotas.</div>
+              </div>
 
-              <button className="cta-button project-cta-button" type="button">
+              <a
+                className="cta-button project-cta-button"
+                href="https://trip-ai-pied.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="cta-text-roller">
-                  <span className="cta-text-primary">Huddle</span>
-                  <span className="cta-text-secondary" aria-hidden="true">Huddle</span>
+                  <span className="cta-text-primary">TripAi</span>
+                  <span className="cta-text-secondary" aria-hidden="true">TripAi</span>
                 </span>
                 <div className="cta-icon-wrapper project-cta-icon-wrapper">
                   <img
-                    src="/huddle-logo.jpg"
-                    alt="Huddle Logo"
+                    src="/tripai/tripai-logo.svg"
+                    alt="TripAi Logo"
                     className="project-cta-logo"
                   />
                 </div>
-              </button>
+              </a>
             </div>
 
           </div>
@@ -1255,7 +1292,7 @@ function App() {
 
       </section>
 
-      {/* 3D Interactive Works Wheel Showcase — placed below Huddle project */}
+      {/* 3D Interactive Works Wheel Showcase — placed below TripAi project */}
       <section className="works-wheel-section">
         <WorksWheel items={WORKS_ITEMS} label="more" action="View" />
       </section>

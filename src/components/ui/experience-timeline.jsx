@@ -14,8 +14,8 @@ const EXPERIENCES = [
     isActive: true,
     images: [
       "/mAInu_project/mAInu.png",
-      "/huddle/chatgpt1.png",
-      "/huddle/chatgpt2.png"
+      "/tripai/tripai-1.png",
+      "/tripai/tripai-2.png"
     ],
     points: [
       "Own <strong>end to end AI product integration</strong> across internal tools and customer-facing apps.",
@@ -30,7 +30,7 @@ const EXPERIENCES = [
     company: "Innovate Inc.",
     location: "Remote",
     date: "Dec '23 - Apr '24",
-    logo: "/huddle-logo.jpg",
+    logo: "/tripai/tripai-logo.svg",
     isActive: false,
     images: [
       "/pic1.png",
@@ -50,11 +50,11 @@ const EXPERIENCES = [
     company: "Startup Co.",
     location: "Bengaluru, KA",
     date: "Jun '23 - Aug '23",
-    logo: "/huddle/chatgpt2.png",
+    logo: "/tripai/tripai-logo.svg",
     isActive: false,
     images: [
-      "/huddle/chatgpt3.png",
-      "/huddle/chatgpt4.png",
+      "/tripai/tripai-3.png",
+      "/tripai/tripai-4.png",
       "/redbull_image.avif"
     ],
     points: [

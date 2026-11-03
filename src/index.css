@@ -1233,7 +1233,7 @@ body {
   align-items: center;
 }
 
-/* Background card wrapping Selected Works header + mAInu + Huddle */
+/* Background card wrapping Selected Works header + mAInu + TripAi */
 .projects-bg-card {
   width: calc(100% - 5rem);
   margin: 0 2.5rem;
@@ -1803,7 +1803,7 @@ body {
   background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.12), transparent);
 }
 
-/* mAInu & Huddle Project CTA Button */
+/* mAInu & TripAi Project CTA Button */
 .project-cta-button {
   align-self: flex-start;
   margin-top: 2.25rem;
