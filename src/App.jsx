@@ -681,7 +681,7 @@ function ResumeOverlay({ isOpen, onClose }) {
     setDocxError(false);
 
     import('docx-preview').then(({ renderAsync }) => {
-      fetch('/Rishabh_Surpariya_Resume.docx')
+      fetch(`/Rishabh_Surpariya_Resume.docx?t=${Date.now()}`, { cache: 'no-cache' })
         .then(res => {
           if (!res.ok) throw new Error('File not found');
           return res.arrayBuffer();
