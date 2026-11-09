@@ -1,0 +1,697 @@
+/* ==========================================================================
+   Interactive Sky Page (Page 2) Styles
+   ========================================================================== */
+
+.sky-page-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background-color: #87ceeb;
+  transition: background-color 0.8s ease;
+  user-select: none;
+}
+
+/* --- Layered Backgrounds with Cross-fade --- */
+.sky-bg-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sky-bg-day {
+  background-image: url('/page2/day.jpg');
+  opacity: 0;
+}
+
+.sky-bg-sunset {
+  background-image: url('/page2/sunset.jpg');
+  opacity: 0;
+}
+
+.sky-bg-night {
+  background-image: url('/page2/night.png');
+  opacity: 0;
+}
+
+.sky-page-section[data-theme="day"] .sky-bg-day {
+  opacity: 1;
+}
+
+.sky-page-section[data-theme="sunset"] .sky-bg-sunset {
+  opacity: 1;
+}
+
+.sky-page-section[data-theme="night"] .sky-bg-night {
+  opacity: 1;
+}
+
+/* Subtle terrain shadow/tint for atmosphere */
+.sky-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.8s ease;
+}
+
+.sky-page-section[data-theme="night"] .sky-vignette {
+  background: radial-gradient(circle at 50% 35%, rgba(0, 5, 20, 0.1) 0%, rgba(0, 4, 15, 0.45) 100%);
+}
+
+/* ==========================================================================
+   Airplane & Trailing Banner
+   ========================================================================== */
+.airplane-track {
+  position: absolute;
+  top: clamp(90px, 14vh, 160px);
+  left: 0;
+  width: 100%;
+  height: 140px;
+  pointer-events: none;
+  z-index: 4;
+  transition: opacity 0.8s ease;
+}
+
+.sky-page-section[data-theme="night"] .airplane-track {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Outer wrapper flies from right to left across the screen in a loop */
+.airplane-flight-path {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: max-content;
+  animation: planeFlyAcross 24s linear infinite;
+  will-change: transform;
+}
+
+/* Inner wrapper applies the 3D spiral corkscrew undulation */
+.airplane-spiral-wrap {
+  display: flex;
+  align-items: center;
+  animation: planeSpiralFlight 4.8s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.airplane-img {
+  width: clamp(100px, 11vw, 155px);
+  height: auto;
+  display: block;
+  flex-shrink: 0;
+  transform: translateY(2px);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+.airplane-banner-wrap {
+  width: clamp(550px, 58vw, 980px);
+  height: auto;
+  aspect-ratio: 5055 / 270;
+  flex-shrink: 0;
+  margin-left: -6px;
+}
+
+.airplane-banner-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+}
+
+@keyframes planeFlyAcross {
+  0% {
+    transform: translateX(102vw);
+  }
+  100% {
+    transform: translateX(calc(-100% - 10vw));
+  }
+}
+
+@keyframes planeSpiralFlight {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-28px) rotate(-2deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(0px) rotate(0.5deg) scale(1);
+  }
+  75% {
+    transform: translateY(28px) rotate(2.5deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}
+
+/* ==========================================================================
+   Hot Air Balloons & Lanterns
+   ========================================================================== */
+.balloon-sky-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  --terrain-gap: 13%;
+  mask-image: linear-gradient(to top, transparent 0%, transparent var(--terrain-gap), black calc(var(--terrain-gap) + 8%));
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, transparent var(--terrain-gap), black calc(var(--terrain-gap) + 8%));
+}
+
+.floating-craft-container {
+  position: absolute;
+  bottom: 0;
+  animation: craftRise linear infinite;
+  will-change: transform;
+  transition: width 0.5s ease;
+}
+
+.floating-craft-sway {
+  width: 100%;
+  height: 100%;
+  animation: craftSway ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.floating-craft-wobble {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: craftWobble ease-in-out infinite alternate;
+  transform-origin: 50% 30%;
+  transition: transform 0.3s ease;
+}
+
+/* Pause animation on hover */
+.floating-craft-container:hover,
+.floating-craft-container:hover .floating-craft-sway,
+.floating-craft-container:hover .floating-craft-wobble {
+  animation-play-state: paused !important;
+}
+
+.craft-art {
+  display: block;
+  height: auto;
+  transition: opacity 0.8s ease, filter 0.8s ease;
+}
+
+.craft-balloon-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.18));
+}
+
+.craft-lantern-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 175, 75, 0.95)) drop-shadow(0 0 22px rgba(255, 130, 30, 0.6));
+}
+
+/* Craft quick-label beside balloon */
+.craft-tag-label {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: clamp(9px, 0.8vw, 11px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  margin-left: 10px;
+  pointer-events: none;
+  transition: color 0.8s ease, text-shadow 0.8s ease;
+  color: #1a2233;
+  opacity: 0.85;
+}
+
+.sky-page-section[data-theme="sunset"] .craft-tag-label {
+  color: #fff6ec;
+  text-shadow: 0 1px 6px rgba(20, 10, 15, 0.8);
+}
+
+.sky-page-section[data-theme="night"] .craft-tag-label {
+  color: #ffd9b7;
+  text-shadow: 0 0 8px rgba(255, 160, 60, 0.7);
+}
+
+/* --- Craft Hover Detail Popover Card --- */
+.craft-popover-card {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  pointer-events: auto;
+  animation: craftCardIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.craft-popover-card.align-right {
+  left: 100%;
+  padding-left: 14px;
+}
+
+.craft-popover-card.align-left {
+  right: 100%;
+  padding-right: 14px;
+  flex-direction: row-reverse;
+}
+
+.craft-card-dash {
+  width: 24px;
+  height: 1.5px;
+  background: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.craft-card-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  min-width: 170px;
+  max-width: 240px;
+  text-decoration: none;
+  color: #1a2233;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.craft-popover-card.align-left .craft-card-panel {
+  text-align: right;
+}
+
+.craft-card-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.sky-page-section[data-theme="sunset"] .craft-card-panel {
+  background: rgba(45, 22, 32, 0.88);
+  border-color: rgba(255, 220, 200, 0.25);
+  color: #fff6ec;
+}
+
+.sky-page-section[data-theme="night"] .craft-card-panel {
+  background: rgba(11, 18, 32, 0.92);
+  border-color: rgba(255, 200, 140, 0.25);
+  color: #eef1f8;
+}
+
+.craft-card-category {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  opacity: 0.6;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.craft-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.craft-card-note {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  line-height: 1.35;
+  opacity: 0.75;
+  margin-bottom: 8px;
+}
+
+.craft-card-action {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #2563eb;
+}
+
+.sky-page-section[data-theme="sunset"] .craft-card-action {
+  color: #ffaa55;
+}
+
+.sky-page-section[data-theme="night"] .craft-card-action {
+  color: #ffd9b7;
+}
+
+@keyframes craftRise {
+  0% {
+    transform: translateY(18vh);
+  }
+  100% {
+    transform: translateY(-128vh);
+  }
+}
+
+@keyframes craftSway {
+  0% {
+    transform: translateX(calc(var(--sway) * -1));
+  }
+  100% {
+    transform: translateX(var(--sway));
+  }
+}
+
+@keyframes craftWobble {
+  0% {
+    transform: rotate(calc(var(--tilt) * -1));
+  }
+  100% {
+    transform: rotate(var(--tilt));
+  }
+}
+
+@keyframes craftCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* ==========================================================================
+   Shooting Stars (Night Mode)
+   ========================================================================== */
+.shooting-stars-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.sky-page-section[data-theme="night"] .shooting-stars-layer {
+  opacity: 1;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+  transform: rotate(-35deg) translateX(0);
+  opacity: 0;
+  animation: shootingStarStreak 8s linear infinite;
+}
+
+@keyframes shootingStarStreak {
+  0% {
+    opacity: 0;
+    transform: rotate(-35deg) translateX(0);
+  }
+  4% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0;
+    transform: rotate(-35deg) translateX(-320px);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-35deg) translateX(-320px);
+  }
+}
+
+/* ==========================================================================
+   Center Statements & Sub-Navigation Tabs
+   ========================================================================== */
+.sky-center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -46%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(880px, 92vw);
+  pointer-events: auto;
+}
+
+/* Sub-nav tabs */
+.sky-subnav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.4vw, 28px);
+  margin-bottom: clamp(2rem, 4.5vh, 3.25rem);
+}
+
+.sky-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 6px 4px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: clamp(10.5px, 0.95vw, 13.5px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  opacity: 0.42;
+  position: relative;
+  color: #1a2233;
+}
+
+.sky-tab-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.sky-tab-btn.is-active {
+  opacity: 1;
+}
+
+.sky-page-section[data-theme="sunset"] .sky-tab-btn {
+  color: #fff6ec;
+}
+
+.sky-page-section[data-theme="night"] .sky-tab-btn {
+  color: #eef1f8;
+}
+
+/* Center typewriter statement box */
+.sky-statement-box {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sky-statement-text {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: clamp(1.2rem, 2.3vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.8s ease, text-shadow 0.8s ease;
+  color: #1a2233;
+}
+
+.sky-statement-text em,
+.sky-statement-text strong {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.sky-page-section[data-theme="sunset"] .sky-statement-text {
+  color: #fff6ec;
+  text-shadow: 0 2px 12px rgba(25, 12, 18, 0.7);
+}
+
+.sky-page-section[data-theme="night"] .sky-statement-text {
+  color: #eef1f8;
+  text-shadow: 0 2px 14px rgba(4, 8, 18, 0.85);
+}
+
+/* ==========================================================================
+   Right-Side Theme Rail (Sun / Sunset / Moon / Auto)
+   ========================================================================== */
+.sky-theme-rail {
+  position: absolute;
+  right: clamp(14px, 2.4vw, 36px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.sky-page-section[data-theme="sunset"] .sky-theme-rail {
+  background: rgba(58, 30, 42, 0.58);
+  border-color: rgba(255, 240, 230, 0.22);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+.sky-page-section[data-theme="night"] .sky-theme-rail {
+  background: rgba(8, 11, 20, 0.65);
+  border-color: rgba(238, 241, 248, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.theme-rail-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  color: #1a2233;
+  opacity: 0.6;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.25s ease, opacity 0.3s ease;
+}
+
+.theme-rail-btn svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+
+.theme-rail-btn:hover {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.theme-rail-btn.is-active {
+  background: #ffffff;
+  color: #1a2233;
+  opacity: 1;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+}
+
+.sky-page-section[data-theme="sunset"] .theme-rail-btn {
+  color: #fff6ec;
+}
+
+.sky-page-section[data-theme="sunset"] .theme-rail-btn.is-active {
+  background: #fff6ec;
+  color: #3a1e2a;
+}
+
+.sky-page-section[data-theme="night"] .theme-rail-btn {
+  color: #eef1f8;
+}
+
+.sky-page-section[data-theme="night"] .theme-rail-btn.is-active {
+  background: #eef1f8;
+  color: #0b1220;
+}
+
+.theme-rail-divider {
+  width: 18px;
+  height: 1px;
+  margin: 3px 0;
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.theme-rail-auto-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.theme-rail-auto-btn:hover {
+  opacity: 1;
+}
+
+.theme-rail-auto-btn.is-active {
+  opacity: 1;
+  background: #1a2233;
+  color: #ffffff;
+}
+
+.sky-page-section[data-theme="sunset"] .theme-rail-auto-btn.is-active {
+  background: #fff6ec;
+  color: #3a1e2a;
+}
+
+.sky-page-section[data-theme="night"] .theme-rail-auto-btn.is-active {
+  background: #eef1f8;
+  color: #0b1220;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 768px) {
+  .sky-theme-rail {
+    right: 12px;
+    padding: 6px 4px;
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  .airplane-track {
+    top: 75px;
+  }
+
+  .sky-statement-box {
+    min-height: 120px;
+  }
+
+  .craft-popover-card {
+    display: none !important;
+  }
+}
+

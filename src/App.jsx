@@ -10,6 +10,7 @@ import { ExperienceTimeline } from './components/ui/experience-timeline';
 import { ConnectShowcase } from './components/ui/connect-showcase';
 import { FooterCTA } from './components/ui/footer-cta';
 import { BookingModal } from './components/ui/booking-modal';
+import { SkyInteractivePage } from './components/ui/sky-interactive-page';
 import StackIcon from 'tech-stack-icons';
 import './index.css';
 
@@ -1177,7 +1178,13 @@ function App() {
         </div>
       </section>
 
-      {/* Page 2: Statement Section ("ENGINEERING That Solves REAL WORLD Complexity") */}
+      {/* Page 2: Interactive Sky Section */}
+      <SkyInteractivePage
+        onOpenResume={() => setShowResume(true)}
+        onOpenBooking={() => setShowBooking(true)}
+      />
+
+      {/* Statement Section ("ENGINEERING That Solves REAL WORLD Complexity") */}
       <AnimatedStatementSection />
 
 
