@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Interactive Sky Page (Page 2) Styles
    ========================================================================== */
 
@@ -486,10 +486,10 @@
   background: transparent;
   border: none;
   padding: 6px 4px;
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(10.5px, 0.95vw, 13.5px);
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
   transition: opacity 0.3s ease, color 0.3s ease, transform 0.2s ease;
@@ -524,12 +524,12 @@
 }
 
 .sky-statement-text {
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(1.2rem, 2.3vw, 2.15rem);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.6;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.025em;
   transition: color 0.8s ease, text-shadow 0.8s ease;
   color: #1a2233;
 }
