@@ -531,7 +531,7 @@
   font-weight: 400;
   line-height: 1.6;
   margin: 0;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.03em;
   transition: color 0.8s ease, text-shadow 0.8s ease;
   color: #1a2233;
 }
