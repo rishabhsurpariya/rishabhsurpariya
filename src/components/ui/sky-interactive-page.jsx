@@ -465,30 +465,60 @@ export function SkyInteractivePage({ onOpenResume, onOpenBooking }) {
           ))}
         </nav>
 
-        {/* Dynamic typewriter / monospace statement text */}
+        {/* Dynamic word-by-word statement text */}
         <div className="sky-statement-box">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.h2
               key={activeTab}
-              initial={{ opacity: 0, y: 12, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
-              transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
+              className="sky-statement-text"
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -8, filter: 'blur(4px)', transition: { duration: 0.28 } }}
             >
-              <h2 className="sky-statement-text">
-                {STATEMENTS[activeTab].lines.map((line, lIdx) => (
-                  <span key={lIdx} style={{ display: 'block' }}>
-                    {line.split('*').map((part, pIdx) => {
-                      // Odd indices were inside *asterisks*
-                      if (pIdx % 2 === 1) {
-                        return <strong key={pIdx}>{part}</strong>;
-                      }
-                      return <span key={pIdx}>{part}</span>;
-                    })}
-                  </span>
-                ))}
-              </h2>
-            </motion.div>
+              {(() => {
+                // Flatten all lines into tokens: words + bold segments, preserving line breaks
+                const allTokens = [];
+                STATEMENTS[activeTab].lines.forEach((line, lIdx) => {
+                  const parts = line.split('*');
+                  parts.forEach((part, pIdx) => {
+                    const isBold = pIdx % 2 === 1;
+                    const words = part.split(' ').filter(Boolean);
+                    words.forEach((word, wIdx) => {
+                      allTokens.push({ word, isBold, key: `${lIdx}-${pIdx}-${wIdx}` });
+                    });
+                  });
+                  if (lIdx < STATEMENTS[activeTab].lines.length - 1) {
+                    allTokens.push({ word: '\n', isBreak: true, key: `br-${lIdx}` });
+                  }
+                });
+
+                let wordIndex = 0;
+                return allTokens.map((token) => {
+                  if (token.isBreak) {
+                    return <br key={token.key} />;
+                  }
+                  const delay = wordIndex * 0.045;
+                  wordIndex++;
+                  const wordVariants = {
+                    hidden: { opacity: 0, y: 18 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.38, ease: [0.22, 1, 0.36, 1], delay },
+                    },
+                  };
+                  const Tag = token.isBold ? motion.strong : motion.span;
+                  return (
+                    <span key={token.key} className="sky-word-wrap">
+                      <Tag variants={wordVariants} style={{ display: 'inline-block' }}>
+                        {token.word}
+                      </Tag>
+                      {' '}
+                    </span>
+                  );
+                });
+              })()}
+            </motion.h2>
           </AnimatePresence>
         </div>
       </div>

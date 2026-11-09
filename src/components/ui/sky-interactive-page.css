@@ -525,6 +525,14 @@
   justify-content: center;
 }
 
+/* Word-by-word clip container */
+.sky-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
 .sky-statement-text {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(0.82rem, 1.4vw, 1.3rem);
@@ -542,12 +550,28 @@
   font-weight: 700;
 }
 
-.sky-page-section[data-theme="sunset"] .sky-statement-text {
+.sky-page-section[data-theme="sunset"] /* Word-by-word clip container */
+.sky-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.sky-statement-text {
   color: #fff6ec;
   text-shadow: 0 2px 12px rgba(25, 12, 18, 0.7);
 }
 
-.sky-page-section[data-theme="night"] .sky-statement-text {
+.sky-page-section[data-theme="night"] /* Word-by-word clip container */
+.sky-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: inherit;
+}
+
+.sky-statement-text {
   color: #eef1f8;
   text-shadow: 0 2px 14px rgba(4, 8, 18, 0.85);
 }
