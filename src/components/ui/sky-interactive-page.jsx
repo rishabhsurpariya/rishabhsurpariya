@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './sky-interactive-page.css';
 
@@ -226,6 +226,17 @@ export function SkyInteractivePage({ onOpenResume, onOpenBooking }) {
   const [isAuto, setIsAuto] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredCraftId, setHoveredCraftId] = useState(null);
+  const [userPaused, setUserPaused] = useState(false);
+  const pauseTimerRef = useRef(null);
+
+  // Auto-cycle tabs every 4 s; pauses for 10 s after a manual click
+  useEffect(() => {
+    if (userPaused) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % SUBNAV_TABS.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [userPaused]);
 
   // Auto mode handler: calculates theme based on current local hour or OS theme
   const getAutoTheme = () => {
@@ -441,7 +452,13 @@ export function SkyInteractivePage({ onOpenResume, onOpenBooking }) {
               key={tab}
               type="button"
               className={`sky-tab-btn ${activeTab === idx ? 'is-active' : ''}`}
-              onClick={() => setActiveTab(idx)}
+              onClick={() => {
+                setActiveTab(idx);
+                // Pause auto-cycle for 10 s after manual selection
+                setUserPaused(true);
+                clearTimeout(pauseTimerRef.current);
+                pauseTimerRef.current = setTimeout(() => setUserPaused(false), 10000);
+              }}
             >
               {tab}
             </button>
