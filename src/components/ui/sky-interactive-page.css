@@ -11,6 +11,9 @@
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
+  border-top-left-radius: clamp(28px, 4vw, 44px);
+  border-top-right-radius: clamp(28px, 4vw, 44px);
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.08);
   background-color: #87ceeb;
   transition: background-color 0.8s ease;
   user-select: none;
