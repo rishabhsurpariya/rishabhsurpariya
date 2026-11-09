@@ -92,7 +92,7 @@
   left: 0;
   top: 0;
   width: max-content;
-  animation: planeFlyAcross 24s linear infinite;
+  animation: planeFlyAcross 36s linear infinite;
   will-change: transform;
 }
 
@@ -100,7 +100,7 @@
 .airplane-spiral-wrap {
   display: flex;
   align-items: center;
-  animation: planeSpiralFlight 4.8s ease-in-out infinite;
+  animation: planeSpiralFlight 7s ease-in-out infinite;
   will-change: transform;
   transform-origin: center center;
 }
