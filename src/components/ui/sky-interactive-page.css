@@ -243,7 +243,7 @@
   order: -1;
   pointer-events: none;
   transition: color 0.8s ease, text-shadow 0.8s ease;
-  color: #1a2233;
+  color: #000000;
   opacity: 0.85;
   text-align: center;
 }
@@ -302,7 +302,7 @@
   min-width: 170px;
   max-width: 240px;
   text-decoration: none;
-  color: #1a2233;
+  color: #000000;
   text-shadow: none;
   transition: transform 0.2s ease;
 }
@@ -328,7 +328,8 @@
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.18em;
-  opacity: 0.6;
+  color: #000000;
+  opacity: 0.65;
   margin-bottom: 4px;
   text-transform: uppercase;
 }
@@ -338,6 +339,7 @@
   font-size: 13px;
   font-weight: 700;
   line-height: 1.25;
+  color: #000000;
   margin-bottom: 4px;
 }
 
@@ -345,8 +347,27 @@
   font-family: 'Outfit', sans-serif;
   font-size: 10.5px;
   line-height: 1.35;
-  opacity: 0.75;
+  color: #000000;
+  opacity: 0.92;
   margin-bottom: 8px;
+}
+
+.sky-page-section[data-theme="sunset"] .craft-card-category {
+  color: rgba(255, 246, 236, 0.7);
+}
+
+.sky-page-section[data-theme="sunset"] .craft-card-title,
+.sky-page-section[data-theme="sunset"] .craft-card-note {
+  color: #fff6ec;
+}
+
+.sky-page-section[data-theme="night"] .craft-card-category {
+  color: rgba(238, 241, 248, 0.7);
+}
+
+.sky-page-section[data-theme="night"] .craft-card-title,
+.sky-page-section[data-theme="night"] .craft-card-note {
+  color: #eef1f8;
 }
 
 .craft-card-action {
@@ -515,7 +536,7 @@
 
 /* Center typewriter statement box */
 .sky-statement-box {
-  min-height: 160px;
+  min-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -523,13 +544,13 @@
 
 .sky-statement-text {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(0.82rem, 1.4vw, 1.3rem);
+  font-size: clamp(0.96rem, 1.65vw, 1.55rem);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.85;
   margin: 0;
   letter-spacing: 0.03em;
   transition: color 0.8s ease, text-shadow 0.8s ease;
-  color: #1a2233;
+  color: #000000;
 }
 
 .sky-statement-text em,
