@@ -1178,12 +1178,6 @@ function App() {
         </div>
       </section>
 
-      {/* Page 2: Interactive Sky Section */}
-      <SkyInteractivePage
-        onOpenResume={() => setShowResume(true)}
-        onOpenBooking={() => setShowBooking(true)}
-      />
-
       {/* Statement Section ("ENGINEERING That Solves REAL WORLD Complexity") */}
       <AnimatedStatementSection />
 
@@ -1421,6 +1415,12 @@ function App() {
 
       {/* Connect & Create Scrapbook Section */}
       <ConnectShowcase />
+
+      {/* Interactive Sky Section */}
+      <SkyInteractivePage
+        onOpenResume={() => setShowResume(true)}
+        onOpenBooking={() => setShowBooking(true)}
+      />
 
       {/* Footer CTA Section */}
       <FooterCTA onOpenResume={() => setShowResume(true)} />
