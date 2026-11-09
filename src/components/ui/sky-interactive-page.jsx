@@ -222,7 +222,7 @@ const SHOOTING_STARS = [
 
 export function SkyInteractivePage({ onOpenResume, onOpenBooking }) {
   // Mode: 'day' | 'sunset' | 'night'
-  const [theme, setTheme] = useState('day');
+  const [theme, setTheme] = useState('sunset');
   const [isAuto, setIsAuto] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [hoveredCraftId, setHoveredCraftId] = useState(null);

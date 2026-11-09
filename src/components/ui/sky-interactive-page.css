@@ -49,6 +49,18 @@
   opacity: 0;
 }
 
+.sky-page-section[data-theme="day"] {
+  background-color: #87ceeb;
+}
+
+.sky-page-section[data-theme="sunset"] {
+  background-color: #e58c65;
+}
+
+.sky-page-section[data-theme="night"] {
+  background-color: #0b1220;
+}
+
 .sky-page-section[data-theme="day"] .sky-bg-day {
   opacity: 1;
 }
