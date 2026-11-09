@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Interactive Sky Page (Page 2) Styles
    ========================================================================== */
 
@@ -487,8 +487,8 @@
   border: none;
   padding: 6px 4px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(10.5px, 0.95vw, 13.5px);
-  font-weight: 700;
+  font-size: clamp(9px, 0.75vw, 11px);
+  font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
@@ -525,8 +525,8 @@
 
 .sky-statement-text {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.2rem, 2.3vw, 2.15rem);
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.75vw, 1.65rem);
+  font-weight: 300;
   line-height: 1.6;
   margin: 0;
   letter-spacing: -0.025em;
