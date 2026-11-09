@@ -525,14 +525,6 @@
   justify-content: center;
 }
 
-/* Word-by-word clip container */
-.sky-word-wrap {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  line-height: inherit;
-}
-
 .sky-statement-text {
   font-family: 'Space Grotesk', sans-serif;
   font-size: clamp(0.82rem, 1.4vw, 1.3rem);
@@ -550,28 +542,12 @@
   font-weight: 700;
 }
 
-.sky-page-section[data-theme="sunset"] /* Word-by-word clip container */
-.sky-word-wrap {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  line-height: inherit;
-}
-
-.sky-statement-text {
+.sky-page-section[data-theme="sunset"] .sky-statement-text {
   color: #fff6ec;
   text-shadow: 0 2px 12px rgba(25, 12, 18, 0.7);
 }
 
-.sky-page-section[data-theme="night"] /* Word-by-word clip container */
-.sky-word-wrap {
-  display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
-  line-height: inherit;
-}
-
-.sky-statement-text {
+.sky-page-section[data-theme="night"] .sky-statement-text {
   color: #eef1f8;
   text-shadow: 0 2px 14px rgba(4, 8, 18, 0.85);
 }
@@ -682,13 +658,21 @@
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
-  color: inherit;
+  color: #1a2233;
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   font-size: 8.5px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  opacity: 0.55;
+  opacity: 0.6;
   transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.sky-page-section[data-theme="sunset"] .theme-rail-auto-btn {
+  color: #fff6ec;
+}
+
+.sky-page-section[data-theme="night"] .theme-rail-auto-btn {
+  color: #eef1f8;
 }
 
 .theme-rail-auto-btn:hover {
