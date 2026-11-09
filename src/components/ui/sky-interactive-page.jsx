@@ -105,7 +105,7 @@ const STATEMENTS = [
 const CRAFTS_CONFIG = [
   {
     id: 1,
-    left: '12%',
+    left: '4%',
     width: 62,
     lanternWidth: 28,
     balloonImg: '/page2/baloon.webp',
@@ -126,7 +126,7 @@ const CRAFTS_CONFIG = [
   },
   {
     id: 2,
-    left: '30%',
+    left: '13%',
     width: 36,
     lanternWidth: 20,
     balloonImg: '/page2/balloon-2.webp',
@@ -147,7 +147,7 @@ const CRAFTS_CONFIG = [
   },
   {
     id: 3,
-    left: '52%',
+    left: '76%',
     width: 50,
     lanternWidth: 26,
     balloonImg: '/page2/balloon-3.webp',
@@ -168,7 +168,7 @@ const CRAFTS_CONFIG = [
   },
   {
     id: 4,
-    left: '72%',
+    left: '85%',
     width: 30,
     lanternWidth: 18,
     balloonImg: '/page2/balloon-2.webp',
@@ -189,7 +189,7 @@ const CRAFTS_CONFIG = [
   },
   {
     id: 5,
-    left: '82%',
+    left: '91%',
     width: 44,
     lanternWidth: 24,
     balloonImg: '/page2/baloon.webp',
@@ -388,41 +388,43 @@ export function SkyInteractivePage({ onOpenResume, onOpenBooking }) {
                   onMouseEnter={() => setHoveredCraftId(craft.id)}
                   onMouseLeave={() => setHoveredCraftId(null)}
                 >
-                  {/* Visual art: balloon for day/sunset, lantern for night */}
-                  {theme === 'night' ? (
-                    <img
-                      src="/page2/lantern.png"
-                      alt="Lantern"
-                      className="craft-art craft-lantern-img"
-                    />
-                  ) : (
-                    <img
-                      src={craft.balloonImg || '/page2/baloon.webp'}
-                      alt="Hot air balloon"
-                      className="craft-art craft-balloon-img"
-                    />
-                  )}
-
-                  {/* Text line carried with the balloon */}
+                  {/* Text label above the balloon */}
                   <span className="craft-tag-label">{craft.tag}</span>
 
-                  {/* Hover detail card popover */}
-                  {isHovered && (
-                    <div className={`craft-popover-card ${alignClass}`}>
-                      <div className="craft-card-dash" />
-                      <div
-                        className="craft-card-panel"
-                        onClick={() => handleCraftAction(craft)}
-                        role="button"
-                        tabIndex={0}
-                      >
-                        <span className="craft-card-category">{craft.category}</span>
-                        <h4 className="craft-card-title">{craft.title}</h4>
-                        <p className="craft-card-note">{craft.note}</p>
-                        <span className="craft-card-action">{craft.actionLabel}</span>
+                  {/* Visual art + popover anchored together */}
+                  <div className="craft-art-wrap">
+                    {theme === 'night' ? (
+                      <img
+                        src="/page2/lantern.png"
+                        alt="Lantern"
+                        className="craft-art craft-lantern-img"
+                      />
+                    ) : (
+                      <img
+                        src={craft.balloonImg || '/page2/baloon.webp'}
+                        alt="Hot air balloon"
+                        className="craft-art craft-balloon-img"
+                      />
+                    )}
+
+                    {/* Hover detail card popover */}
+                    {isHovered && (
+                      <div className={`craft-popover-card ${alignClass}`}>
+                        <div className="craft-card-dash" />
+                        <div
+                          className="craft-card-panel"
+                          onClick={() => handleCraftAction(craft)}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <span className="craft-card-category">{craft.category}</span>
+                          <h4 className="craft-card-title">{craft.title}</h4>
+                          <p className="craft-card-note">{craft.note}</p>
+                          <span className="craft-card-action">{craft.actionLabel}</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

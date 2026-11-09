@@ -187,6 +187,7 @@
 
 .floating-craft-wobble {
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -209,6 +210,15 @@
   transition: opacity 0.8s ease, filter 0.8s ease;
 }
 
+/* Wrapper around just the balloon/lantern image — popover anchors here */
+.craft-art-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .craft-balloon-img {
   width: 100%;
   height: auto;
@@ -221,18 +231,21 @@
   filter: drop-shadow(0 0 8px rgba(255, 175, 75, 0.95)) drop-shadow(0 0 22px rgba(255, 130, 30, 0.6));
 }
 
-/* Craft quick-label beside balloon */
+/* Craft quick-label above balloon */
 .craft-tag-label {
   font-family: 'IBM Plex Mono', 'Courier New', monospace;
   font-size: clamp(9px, 0.8vw, 11px);
   font-weight: 600;
   letter-spacing: 0.12em;
   white-space: nowrap;
-  margin-left: 10px;
+  margin-left: 0;
+  margin-bottom: 7px;
+  order: -1;
   pointer-events: none;
   transition: color 0.8s ease, text-shadow 0.8s ease;
   color: #1a2233;
   opacity: 0.85;
+  text-align: center;
 }
 
 .sky-page-section[data-theme="sunset"] .craft-tag-label {
