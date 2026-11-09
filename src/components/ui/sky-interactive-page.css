@@ -3,14 +3,18 @@
    ========================================================================== */
 
 .sky-page-section {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100%;
+  height: 100vh;
+  height: 100svh;
   min-height: 100vh;
   min-height: 100svh;
   overflow: hidden;
   background-color: #87ceeb;
   transition: background-color 0.8s ease;
   user-select: none;
+  z-index: 1;
 }
 
 /* --- Layered Backgrounds with Cross-fade --- */

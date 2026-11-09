@@ -1416,7 +1416,7 @@ function App() {
       {/* Connect & Create Scrapbook Section */}
       <ConnectShowcase />
 
-      {/* Interactive Sky Section */}
+      {/* Interactive Sky Section (Second to last page) */}
       <SkyInteractivePage
         onOpenResume={() => setShowResume(true)}
         onOpenBooking={() => setShowBooking(true)}
