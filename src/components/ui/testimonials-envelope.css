@@ -1,0 +1,1074 @@
+/* ==========================================================================
+   Testimonials Envelope Section ("Words of Trust")
+   Tactile letter envelopes, scroll emerge mechanics, ambient sky aerodynamics,
+   interactive air currents canvas & 3D origami envelope modal.
+   ========================================================================== */
+
+.testimonials-envelope-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    rgb(219, 234, 254) 0%,
+    rgb(224, 242, 254) 18%,
+    rgb(240, 249, 255) 42%,
+    rgb(248, 250, 252) 75%,
+    rgb(239, 246, 255) 100%
+  );
+  padding: 6.5rem 1.5rem 9rem;
+  box-sizing: border-box;
+  color: #1E1B17;
+  font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Ambient Sky Aerodynamics (Clouds, Airplanes, Birds) ── */
+.testimonials-sky-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  user-select: none;
+}
+
+.testimonials-cloud-haze {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24rem;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(to bottom, rgba(186, 230, 253, 0.5), rgba(224, 242, 254, 0.2), transparent);
+}
+
+.cloud-float {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cloud-drift-1 {
+  top: -3rem;
+  left: -5rem;
+  width: 680px;
+  height: 16rem;
+  color: rgba(255, 255, 255, 0.5);
+  filter: blur(1px);
+  animation: cloudDriftSlow 24s ease-in-out infinite;
+  will-change: transform;
+}
+
+.cloud-drift-2 {
+  top: 25%;
+  right: -6rem;
+  width: 740px;
+  height: 18rem;
+  color: rgba(255, 255, 255, 0.45);
+  filter: blur(0.5px);
+  animation: cloudDriftGentle 30s ease-in-out infinite -6s;
+  will-change: transform;
+}
+
+.cloud-drift-3 {
+  top: 66%;
+  left: -7rem;
+  width: 620px;
+  height: 15rem;
+  color: rgba(255, 255, 255, 0.4);
+  filter: blur(1.5px);
+  animation: cloudDriftAlt 36s ease-in-out infinite -14s;
+  will-change: transform;
+}
+
+@keyframes cloudDriftSlow {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(28px, -14px) scale(1.02); }
+}
+
+@keyframes cloudDriftGentle {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-22px, 12px) scale(1.03); }
+}
+
+@keyframes cloudDriftAlt {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(32px, 10px) scale(0.98); }
+}
+
+/* ── Paper Airplanes & Soaring Birds ── */
+.testimonials-aero-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+  user-select: none;
+}
+
+.plane-anim-1 {
+  position: absolute;
+  top: 14%;
+  left: 0;
+  width: 4.5rem;
+  height: 3.2rem;
+  animation: planeGlideWestToEast 28s cubic-bezier(0.38, 0, 0.25, 1) infinite -7s;
+  will-change: transform, opacity;
+}
+
+.plane-anim-2 {
+  position: absolute;
+  top: 52%;
+  right: 0;
+  width: 4rem;
+  height: 2.8rem;
+  animation: planeGlideEastToWest 35s cubic-bezier(0.42, 0, 0.28, 1) infinite -19s;
+  will-change: transform, opacity;
+}
+
+.plane-anim-3 {
+  position: absolute;
+  top: 34%;
+  left: 0;
+  width: 2.8rem;
+  height: 2rem;
+  animation: planeGlideHighAltitude 42s cubic-bezier(0.35, 0, 0.3, 1) infinite -2s;
+  will-change: transform, opacity;
+}
+
+.bird-anim-1 {
+  position: absolute;
+  top: 21%;
+  left: 0;
+  width: 2.4rem;
+  height: 1.8rem;
+  animation: birdSoarMain 32s ease-in-out infinite -11s;
+  will-change: transform, opacity;
+}
+
+.bird-anim-2 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+  width: 1.9rem;
+  height: 1.4rem;
+  animation: birdSoarCompanion 32s ease-in-out infinite -11.6s;
+  will-change: transform, opacity;
+}
+
+.bird-anim-3 {
+  position: absolute;
+  top: 74%;
+  right: 0;
+  width: 1.6rem;
+  height: 1.3rem;
+  animation: birdSoarHighFar 38s ease-in-out infinite -23s;
+  will-change: transform, opacity;
+}
+
+@keyframes planeGlideWestToEast {
+  0% { transform: translate(-140px, 20px) rotate(8deg) scale(0.85); opacity: 0; }
+  6% { opacity: 0.88; }
+  35% { transform: translate(38vw, -30px) rotate(4deg) scale(0.92); }
+  65% { transform: translate(72vw, 15px) rotate(11deg) scale(0.88); }
+  94% { opacity: 0.88; }
+  100% { transform: translate(108vw, -15px) rotate(6deg) scale(0.85); opacity: 0; }
+}
+
+@keyframes planeGlideEastToWest {
+  0% { transform: translate(105vw, -10px) scaleX(-1) rotate(6deg) scale(0.72); opacity: 0; }
+  8% { opacity: 0.75; }
+  45% { transform: translate(60vw, 35px) scaleX(-1) rotate(2deg) scale(0.76); }
+  80% { transform: translate(20vw, -10px) scaleX(-1) rotate(9deg) scale(0.73); }
+  93% { opacity: 0.75; }
+  100% { transform: translate(-120px, 25px) scaleX(-1) rotate(5deg) scale(0.7); opacity: 0; }
+}
+
+@keyframes planeGlideHighAltitude {
+  0% { transform: translate(-120px, 0px) rotate(3deg) scale(0.6); opacity: 0; }
+  10% { opacity: 0.65; }
+  50% { transform: translate(52vw, 22px) rotate(7deg) scale(0.63); }
+  90% { opacity: 0.65; }
+  100% { transform: translate(108vw, -8px) rotate(2deg) scale(0.6); opacity: 0; }
+}
+
+@keyframes birdSoarMain {
+  0% { transform: translate(-100px, 40px) scale(0.9) rotate(3deg); opacity: 0; }
+  8% { opacity: 0.65; }
+  28% { transform: translate(30vw, -15px) scale(0.95) rotate(-2deg); }
+  60% { transform: translate(65vw, 25px) scale(0.92) rotate(4deg); }
+  92% { opacity: 0.65; }
+  100% { transform: translate(108vw, -20px) scale(0.88) rotate(1deg); opacity: 0; }
+}
+
+@keyframes birdSoarCompanion {
+  0% { transform: translate(-130px, 58px) scale(0.75) rotate(5deg); opacity: 0; }
+  10% { opacity: 0.55; }
+  32% { transform: translate(28vw, 0px) scale(0.78) rotate(0deg); }
+  64% { transform: translate(63vw, 42px) scale(0.76) rotate(6deg); }
+  90% { opacity: 0.55; }
+  100% { transform: translate(106vw, -5px) scale(0.73) rotate(3deg); opacity: 0; }
+}
+
+@keyframes birdSoarHighFar {
+  0% { transform: translate(105vw, 30px) scaleX(-1) scale(0.55) rotate(4deg); opacity: 0; }
+  12% { opacity: 0.45; }
+  50% { transform: translate(50vw, -12px) scaleX(-1) scale(0.58) rotate(-1deg); }
+  88% { opacity: 0.45; }
+  100% { transform: translate(-90px, 18px) scaleX(-1) scale(0.55) rotate(3deg); opacity: 0; }
+}
+
+@keyframes wingFlutter {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.72) translateY(1.5px); }
+}
+
+.flutter-subtle {
+  transform-origin: center center;
+  animation: wingFlutter 1.6s ease-in-out infinite;
+}
+
+.flutter-companion {
+  transform-origin: center center;
+  animation: wingFlutter 1.4s ease-in-out infinite -0.5s;
+}
+
+/* ── Interactive Air Currents Canvas ── */
+.testimonials-air-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+/* ── Section Header ── */
+.testimonials-header {
+  position: relative;
+  z-index: 10;
+  max-width: 56rem;
+  margin: 0 auto 5rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.testimonials-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: #F4EDE6;
+  border: 1px solid #D2C5B2;
+  color: #7A5900;
+  font-size: 0.72rem;
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.testimonials-title {
+  font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: clamp(2.6rem, 5.8vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: #1E1B17;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.testimonials-subtitle {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: #62594B;
+  max-width: 38rem;
+  margin: 1.25rem auto 0;
+  font-weight: 400;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ── Alternating Envelope Grid ── */
+.testimonials-envelope-grid {
+  position: relative;
+  z-index: 10;
+  max-width: 78rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6rem, 12vh, 9.5rem);
+  padding: 0 1rem;
+}
+
+.envelope-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.envelope-row.align-left {
+  justify-content: flex-start;
+}
+
+.envelope-row.align-right {
+  justify-content: flex-end;
+}
+
+/* ── The Envelope Box Container ── */
+.envelope-container {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 1.38 / 1;
+  min-height: 380px;
+  user-select: none;
+  transform-origin: center center;
+  transition: transform 0.4s ease;
+}
+
+@media (max-width: 640px) {
+  .envelope-container {
+    min-height: 340px;
+    aspect-ratio: 1.25 / 1;
+  }
+}
+
+/* Back cavity */
+.envelope-back-cavity {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.18), 0 8px 16px -4px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.envelope-dot-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+.envelope-v-slit {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 11rem;
+  clip-path: polygon(0 0, 50% 86%, 100% 0);
+}
+
+/* Envelope pocket slot clipping: allows upward emergence without bottom protrusion */
+.envelope-slot-container {
+  position: absolute;
+  top: -380px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 0.75rem;
+  z-index: 10;
+}
+
+/* The Sliding Letter Paper Card */
+.letter-paper {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 12px;
+  min-height: 440px;
+  border-radius: 0.5rem;
+  padding: 1.35rem 1.75rem 1.25rem;
+  z-index: 20;
+  border: 1px solid #E9E4D4;
+  background: #FDFCF8;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.025) 1px, transparent 0),
+    linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(247,243,234,0.55) 100%);
+  background-size: 16px 16px, 100% 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  transition: transform 0.65s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.6s ease;
+  touch-action: pan-y;
+}
+
+@media (min-width: 640px) {
+  .letter-paper {
+    left: 8%;
+    right: 8%;
+    padding: 1.5rem 2.25rem 1.35rem;
+  }
+}
+
+/* Tactile Pull-Tab styling */
+.pull-tab {
+  position: absolute;
+  top: -2rem;
+  right: 1.5rem;
+  padding: 0.35rem 0.85rem;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: linear-gradient(180deg, #F9F6F0 0%, #EDE5D5 100%);
+  border: 1px dashed #B8A992;
+  box-shadow: 
+    0 2px 5px rgba(0,0,0,0.08),
+    0 6px 14px -4px rgba(70, 50, 20, 0.18),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  transform-origin: bottom center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.pull-tab:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.pull-tab-label {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pull-tab-sub {
+  font-size: 10px;
+  opacity: 0.75;
+  font-family: 'Work Sans', sans-serif;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.pull-tab:hover .pull-tab-sub {
+  opacity: 1;
+}
+
+/* Letter Content */
+.letter-quote-body {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(16px, 1.25vw, 19px);
+  line-height: 1.55;
+  color: #222220;
+  margin: 0;
+}
+
+.letter-footer {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(220, 215, 200, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.letter-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.letter-author-name {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4E4A43;
+}
+
+.letter-author-context {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8A857A;
+}
+
+.letter-read-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: #FAF7F2;
+  border: 1px solid #D2C5B2;
+  font-size: 0.7rem;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.letter-read-btn:hover {
+  background: #F4EDE6;
+  transform: translateY(-1px);
+}
+
+/* ── Front Pocket Wings (Layers ON TOP of sliding paper) ── */
+.envelope-front-pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.envelope-pocket-left {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  filter: drop-shadow(2px 0 4px rgba(0,0,0,0.06));
+}
+
+.envelope-pocket-right {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(-2px 0 4px rgba(0,0,0,0.08));
+}
+
+.envelope-pocket-bottom {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 100%, 50% 22%, 100% 100%);
+  filter: drop-shadow(0 -4px 10px rgba(0,0,0,0.09));
+}
+
+/* Postage Stamp Perforated Edges */
+.envelope-stamp-anchor {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1.75rem;
+  pointer-events: auto;
+}
+
+.postage-stamp-wrap {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.postage-stamp-wrap:hover {
+  transform: scale(1.06);
+}
+
+.postage-stamp {
+  background: white;
+  padding: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  position: relative;
+  background:
+    radial-gradient(circle at 0% 50%, transparent 4px, white 4.5px),
+    radial-gradient(circle at 100% 50%, transparent 4px, white 4.5px),
+    radial-gradient(circle at 50% 0%, transparent 4px, white 4.5px),
+    radial-gradient(circle at 50% 100%, transparent 4px, white 4.5px);
+  background-position: top left, top right, top left, bottom left;
+  background-repeat: repeat-y, repeat-y, repeat-x, repeat-x;
+  background-size: 10px 10px, 10px 10px, 10px 10px, 10px 10px;
+  border: 3px solid transparent;
+  width: 5rem;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1px;
+}
+
+.postage-stamp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) grayscale(15%);
+}
+
+.stamp-cancellation-badge {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid rgba(28, 25, 23, 0.45);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: rotate(12deg);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(2px);
+}
+
+.stamp-cancellation-badge.align-left-badge {
+  left: -0.75rem;
+  right: auto;
+  transform: rotate(-12deg);
+}
+
+.stamp-badge-text {
+  font-size: 6.5px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(28, 25, 23, 0.7);
+}
+
+.envelope-author-name {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: #181816;
+  margin: 0.75rem 0 0.15rem;
+  text-align: center;
+}
+
+.envelope-author-role {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+  color: #5C4200;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── 3D Origami Envelope Modal Experience ── */
+.envelope-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.envelope-modal-overlay.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.envelope-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 27, 23, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.envelope-3d-stage {
+  perspective: 1400px;
+  perspective-origin: center 40%;
+  position: relative;
+  width: 100%;
+  max-width: 44rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  user-select: none;
+}
+
+.modal-envelope-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.48 / 1;
+  min-height: 400px;
+  border-radius: 1rem;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.4);
+  transform-origin: center center;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.modal-envelope-base {
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.5s ease;
+}
+
+.envelope-top-flap {
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+}
+
+.envelope-3d-flap {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 12rem;
+  z-index: 40;
+  pointer-events: none;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+
+.envelope-3d-flap.is-open {
+  transform: rotateX(180deg);
+}
+
+.modal-flap-outer {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateX(0deg);
+  transition: background-color 0.5s ease;
+}
+
+.modal-flap-inner {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: rotateX(180deg) scaleY(-1);
+  filter: brightness(0.94);
+  transition: background-color 0.5s ease;
+}
+
+.modal-flap-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(120, 53, 15, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #372b1a;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Modal letter card glide */
+.modal-letter-glide-box {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 1rem;
+  top: 0.5rem;
+  z-index: 20;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, box-shadow 0.9s ease;
+  will-change: transform, opacity;
+}
+
+.letter-modal-card {
+  position: relative;
+  width: 100%;
+  background: #FCFAF6;
+  border: 1px solid #D2C5B2;
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.35);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.025) 1px, transparent 0),
+    linear-gradient(to bottom, #FAF7F0 0%, #F5EFE4 100%);
+  background-size: 16px 16px, 100% 100%;
+}
+
+.modal-accent-bar {
+  height: 0.5rem;
+  width: 100%;
+  transition: background 0.5s ease;
+}
+
+.modal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid #E8E1DB;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+}
+
+.modal-badge-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  background: #F4EDE6;
+  border: 1px solid #D2C5B2;
+  font-size: 9px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7A5900;
+  font-weight: 700;
+}
+
+.modal-counter {
+  font-size: 0.75rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #8C877D;
+  margin-left: 0.75rem;
+}
+
+.modal-nav-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid #D2C5B2;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4E4637;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-nav-btn:hover {
+  background: #F4EDE6;
+  transform: scale(1.08);
+}
+
+.modal-close-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background: #E8E1DB;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1E1B17;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #D2C5B2;
+  transform: scale(1.08);
+}
+
+.modal-scroll-body {
+  overflow-y: auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .modal-scroll-body {
+    padding: 2rem 2.5rem;
+  }
+}
+
+.modal-correspondent-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #E8E1DB;
+}
+
+.modal-correspondent-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-author-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  color: #1E1B17;
+  margin: 0;
+}
+
+.modal-author-role {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 0.95rem;
+  color: #7A5900;
+  margin: 0.15rem 0 0;
+}
+
+.modal-author-context {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: #8A857A;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.25rem;
+}
+
+.modal-airmail-box {
+  display: inline-block;
+  border: 1px dashed #B8A992;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.7);
+  text-align: left;
+}
+
+.modal-airmail-tag {
+  font-size: 9px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #8C877D;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.modal-dispatch-text {
+  font-size: 0.75rem;
+  font-family: 'Newsreader', Georgia, serif;
+  color: #4E4637;
+  margin: 0.15rem 0 0;
+  font-weight: 500;
+}
+
+.modal-quote-wrapper {
+  position: relative;
+  padding: 0.75rem 0 0.5rem 1.75rem;
+}
+
+.modal-quote-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  color: rgba(210, 197, 178, 0.45);
+}
+
+.modal-quote-text {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(21px, 2.2vw, 25px);
+  color: #222220;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.modal-endorsement-footer {
+  padding-top: 1rem;
+  border-top: 1px solid #E8E1DB;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.modal-verified-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-verified-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  background: #10B981;
+}
+
+.modal-signature-handwriting {
+  font-family: 'Caveat', cursive;
+  font-size: 1.75rem;
+  color: #4E4637;
+}
+
+.modal-bottom-bar {
+  padding: 0.75rem 1.5rem;
+  background: #FAF7F2;
+  border-top: 1px solid #E8E1DB;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #62594B;
+}
+
+.modal-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modal-link-btn {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.modal-link-btn:hover {
+  color: #1E1B17;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .cloud-drift-1,
+  .cloud-drift-2,
+  .cloud-drift-3,
+  .plane-anim-1,
+  .plane-anim-2,
+  .plane-anim-3,
+  .bird-anim-1,
+  .bird-anim-2,
+  .bird-anim-3,
+  .flutter-subtle,
+  .flutter-companion,
+  .envelope-3d-flap,
+  .modal-letter-glide-box,
+  .letter-paper {
+    animation: none !important;
+    transition: none !important;
+  }
+}
