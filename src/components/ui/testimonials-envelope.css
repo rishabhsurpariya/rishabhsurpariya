@@ -16,7 +16,7 @@
     rgb(248, 250, 252) 75%,
     rgb(239, 246, 255) 100%
   );
-  padding: 6.5rem 1.5rem 9rem;
+  padding: 5rem 1.5rem 6.5rem;
   box-sizing: border-box;
   color: #1E1B17;
   font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
@@ -248,7 +248,7 @@
   position: relative;
   z-index: 10;
   max-width: 56rem;
-  margin: 0 auto 5rem;
+  margin: 0 auto 3.5rem;
   text-align: center;
   padding: 0 1rem;
 }
@@ -295,11 +295,11 @@
 .testimonials-envelope-grid {
   position: relative;
   z-index: 10;
-  max-width: 78rem;
+  max-width: 74rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(6rem, 12vh, 9.5rem);
+  gap: clamp(2.5rem, 5vh, 4.25rem);
   padding: 0 1rem;
 }
 
@@ -322,9 +322,9 @@
 .envelope-container {
   position: relative;
   width: 100%;
-  max-width: 720px;
-  aspect-ratio: 1.38 / 1;
-  min-height: 380px;
+  max-width: 580px;
+  aspect-ratio: 1.4 / 1;
+  min-height: 310px;
   user-select: none;
   transform-origin: center center;
   transition: transform 0.4s ease;
@@ -332,8 +332,8 @@
 
 @media (max-width: 640px) {
   .envelope-container {
-    min-height: 340px;
-    aspect-ratio: 1.25 / 1;
+    min-height: 270px;
+    aspect-ratio: 1.28 / 1;
   }
 }
 
@@ -359,14 +359,14 @@
   top: -1px;
   left: 0;
   right: 0;
-  height: 11rem;
+  height: 8.5rem;
   clip-path: polygon(0 0, 50% 86%, 100% 0);
 }
 
 /* Envelope pocket slot clipping: allows upward emergence without bottom protrusion */
 .envelope-slot-container {
   position: absolute;
-  top: -380px;
+  top: -300px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -381,10 +381,10 @@
   position: absolute;
   left: 6%;
   right: 6%;
-  bottom: 12px;
-  min-height: 440px;
+  bottom: 10px;
+  min-height: 350px;
   border-radius: 0.5rem;
-  padding: 1.35rem 1.75rem 1.25rem;
+  padding: 1.15rem 1.4rem 1rem;
   z-index: 20;
   border: 1px solid #E9E4D4;
   background: #FDFCF8;
@@ -403,7 +403,7 @@
   .letter-paper {
     left: 8%;
     right: 8%;
-    padding: 1.5rem 2.25rem 1.35rem;
+    padding: 1.25rem 1.65rem 1.15rem;
   }
 }
 
@@ -552,7 +552,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
   pointer-events: auto;
 }
 
@@ -568,7 +568,7 @@
 
 .postage-stamp {
   background: white;
-  padding: 6px;
+  padding: 5px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
   position: relative;
@@ -581,8 +581,8 @@
   background-repeat: repeat-y, repeat-y, repeat-x, repeat-x;
   background-size: 10px 10px, 10px 10px, 10px 10px, 10px 10px;
   border: 3px solid transparent;
-  width: 5rem;
-  height: 6rem;
+  width: 4.25rem;
+  height: 5.1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -599,10 +599,10 @@
 
 .stamp-cancellation-badge {
   position: absolute;
-  top: -0.75rem;
-  right: -0.75rem;
-  width: 2.25rem;
-  height: 2.25rem;
+  top: -0.65rem;
+  right: -0.65rem;
+  width: 1.9rem;
+  height: 1.9rem;
   border: 1px solid rgba(28, 25, 23, 0.45);
   border-radius: 9999px;
   display: flex;
@@ -615,13 +615,13 @@
 }
 
 .stamp-cancellation-badge.align-left-badge {
-  left: -0.75rem;
+  left: -0.65rem;
   right: auto;
   transform: rotate(-12deg);
 }
 
 .stamp-badge-text {
-  font-size: 6.5px;
+  font-size: 6px;
   font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 0.15em;
   font-weight: 700;
@@ -631,16 +631,16 @@
 
 .envelope-author-name {
   font-family: 'Newsreader', Georgia, serif;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
   font-weight: 600;
   color: #181816;
-  margin: 0.75rem 0 0.15rem;
+  margin: 0.45rem 0 0.1rem;
   text-align: center;
 }
 
 .envelope-author-role {
   font-family: 'Newsreader', Georgia, serif;
-  font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+  font-size: clamp(0.72rem, 0.95vw, 0.82rem);
   color: #5C4200;
   margin: 0;
   text-align: center;
@@ -659,6 +659,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s ease;
+  overscroll-behavior: contain;
 }
 
 .envelope-modal-overlay.is-active {
@@ -686,17 +687,31 @@
   justify-content: center;
   z-index: 10;
   user-select: none;
+  overscroll-behavior: contain;
 }
 
 .modal-envelope-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.48 / 1;
-  min-height: 400px;
+  min-height: 480px;
+  height: clamp(480px, 72vh, 600px);
   border-radius: 1rem;
   box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.4);
   transform-origin: center center;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  overscroll-behavior: contain;
+}
+
+@media (max-width: 640px) {
+  .envelope-3d-stage {
+    max-width: 100%;
+    padding: 0 0.25rem;
+  }
+  .modal-envelope-wrapper {
+    min-height: 440px;
+    height: 82vh;
+    max-height: 580px;
+  }
 }
 
 .modal-envelope-base {
@@ -789,11 +804,13 @@
   justify-content: flex-start;
   transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, box-shadow 0.9s ease;
   will-change: transform, opacity;
+  overscroll-behavior: contain;
 }
 
 .letter-modal-card {
   position: relative;
   width: 100%;
+  height: 100%;
   background: #FCFAF6;
   border: 1px solid #D2C5B2;
   box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.35);
@@ -802,6 +819,7 @@
   max-height: 85vh;
   display: flex;
   flex-direction: column;
+  overscroll-behavior: contain;
   background-image:
     radial-gradient(rgba(0,0,0,0.025) 1px, transparent 0),
     linear-gradient(to bottom, #FAF7F0 0%, #F5EFE4 100%);
@@ -811,6 +829,7 @@
 .modal-accent-bar {
   height: 0.5rem;
   width: 100%;
+  flex-shrink: 0;
   transition: background 0.5s ease;
 }
 
@@ -822,6 +841,7 @@
   border-bottom: 1px solid #E8E1DB;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(6px);
+  flex-shrink: 0;
 }
 
 .modal-badge-chip {
@@ -887,11 +907,33 @@
 }
 
 .modal-scroll-body {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
   padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+/* Tactile Custom Scrollbar for Letter Modal */
+.modal-scroll-body::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-scroll-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+  margin: 6px 0;
+}
+.modal-scroll-body::-webkit-scrollbar-thumb {
+  background: #C4B59F;
+  border-radius: 9999px;
+}
+.modal-scroll-body::-webkit-scrollbar-thumb:hover {
+  background: #9A8973;
 }
 
 @media (min-width: 640px) {
@@ -1028,6 +1070,7 @@
   justify-content: space-between;
   font-size: 0.75rem;
   color: #62594B;
+  flex-shrink: 0;
 }
 
 .modal-bottom-links {

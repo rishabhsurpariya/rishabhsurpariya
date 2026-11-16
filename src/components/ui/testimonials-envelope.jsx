@@ -107,7 +107,7 @@ const LETTERS_DATA = [
 ];
 
 const TUCKED_Y = 0;
-const EMERGED_Y = -290;
+const EMERGED_Y = -220;
 
 export function TestimonialsEnvelope() {
   const containerRef = useRef(null);
@@ -126,7 +126,7 @@ export function TestimonialsEnvelope() {
     const cfg = LETTERS_DATA[index];
     if (!el || !cfg) return;
 
-    const emergedDist = typeof window !== 'undefined' && window.innerWidth < 640 ? -225 : -280;
+    const emergedDist = typeof window !== 'undefined' && window.innerWidth < 640 ? -170 : -220;
     const currentY = TUCKED_Y + (emergedDist - TUCKED_Y) * progress;
     const tilt = cfg.baseTilt * (0.8 + progress * 0.4);
 
@@ -472,10 +472,35 @@ export function TestimonialsEnvelope() {
   }, []);
 
   // ── Modal Handlers ──
+  // Lock document scroll and pause Lenis smooth scroll while letter modal is open
+  useEffect(() => {
+    const isModalOpen = modalStage !== 'closed';
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.stop();
+      }
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.start();
+      }
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      if (typeof window !== 'undefined' && window.lenis) {
+        window.lenis.start();
+      }
+    };
+  }, [modalStage]);
+
   const openLetterModal = (idx) => {
     setActiveModalIdx(idx);
     setModalStage('opening');
-    document.body.style.overflow = 'hidden';
 
     // Phase 2: Flap opening
     setTimeout(() => {
@@ -498,7 +523,6 @@ export function TestimonialsEnvelope() {
     setTimeout(() => {
       setActiveModalIdx(null);
       setModalStage('closed');
-      document.body.style.overflow = '';
     }, 520);
   };
 
@@ -788,12 +812,15 @@ export function TestimonialsEnvelope() {
           className={`envelope-modal-overlay ${modalStage !== 'closed' && modalStage !== 'closing' ? 'is-active' : ''}`}
           role="dialog"
           aria-modal="true"
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
         >
           <div className="envelope-modal-backdrop" onClick={closeLetterModal} />
 
-          <div className="envelope-3d-stage">
+          <div className="envelope-3d-stage" data-lenis-prevent="true">
             <div
               className="modal-envelope-wrapper"
+              data-lenis-prevent="true"
               style={{
                 transform: modalStage === 'opening' || modalStage === 'closing' ? 'scale(0.88) translateY(18px)' : 'scale(1) translateY(0)',
                 opacity: modalStage === 'closing' ? 0 : 1,
@@ -830,6 +857,7 @@ export function TestimonialsEnvelope() {
               {/* Sliding Letter Sheet */}
               <div
                 className="modal-letter-glide-box"
+                data-lenis-prevent="true"
                 style={{
                   transform:
                     modalStage === 'opening' || modalStage === 'flap-open'
@@ -840,7 +868,7 @@ export function TestimonialsEnvelope() {
                   opacity: modalStage === 'opening' || modalStage === 'flap-open' ? 0 : 1,
                 }}
               >
-                <div className="letter-modal-card">
+                <div className="letter-modal-card" data-lenis-prevent="true">
                   {/* Accent bar */}
                   <div
                     className="modal-accent-bar"
@@ -890,7 +918,12 @@ export function TestimonialsEnvelope() {
                   </div>
 
                   {/* Scrollable Letter Body */}
-                  <div className="modal-scroll-body">
+                  <div
+                    className="modal-scroll-body"
+                    data-lenis-prevent="true"
+                    onWheel={(e) => e.stopPropagation()}
+                    onTouchMove={(e) => e.stopPropagation()}
+                  >
                     {/* Header */}
                     <div className="modal-correspondent-header">
                       <div className="modal-correspondent-left">
